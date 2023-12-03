@@ -34,7 +34,7 @@ plugins=(
     npm
     tmux
     zsh-autosuggestions
-    zsh-completions
+    # zsh-completions
     zsh-interactive-cd
     zsh-navigation-tools
     zsh-syntax-highlighting
