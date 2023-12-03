@@ -6,3 +6,6 @@ git sparse-checkout add patched-fonts/JetBrainsMono
 git sparse-checkout add install.sh
 
 ./install.sh JetBrainsMono
+
+cd $HOME
+rm -rf $HOME/Downloads/nerd-fonts
