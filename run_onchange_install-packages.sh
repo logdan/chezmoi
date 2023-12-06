@@ -47,7 +47,7 @@ fi
 # Install ripgrep
 if ! command -v rg >/dev/null 2>&1; then
     echo "Installing ripgrep..."
-    sudo apt install ripgrep
+    sudo apt install ripgrep -y
 else
     echo "ripgrep is already installed."
 fi
@@ -55,7 +55,7 @@ fi
 # Install bat
 if ! command -v batcat >/dev/null 2>&1; then
     echo "Installing bat..."
-    sudo apt install bat
+    sudo apt install bat -y
     mkdir -p ~/.local/bin
     ln -s /usr/bin/batcat ~/.local/bin/bat
 else
@@ -89,7 +89,7 @@ if ! command -v exa >/dev/null 2>&1 && [ ! -f "$EXA_LOCAL_PATH" ]; then
         ln -s /usr/local/bin/exa $EXA_LOCAL_PATH
     else
         echo "Installing exa from package manager."
-        sudo apt install exa
+        sudo apt install exa -y
     fi
 else
     echo "exa is already installed."
