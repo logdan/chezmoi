@@ -16,7 +16,7 @@ Run `sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:logd
 
 3. Preview changes that `chezmoi` would make to your `$HOME`: `chezmoi diff`.
 
-4. Apply the changes: `chezmoi apply`. This will automatically install antigen and packages required for certain plugins using the [run_once_install-packages.sh](run_once_install-packages.sh) script. Upon the first launch, all packages will be installed and run
+4. Apply the changes: `chezmoi apply`. This will automatically install packages required for certain plugins using the [run_once_install-packages.sh](run_once_install-packages.sh) script. Upon the first launch, all packages will be installed and run
 
 5. Launch zsh: `exec zsh`.
 
