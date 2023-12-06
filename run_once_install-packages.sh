@@ -63,11 +63,37 @@ else
 fi
 
 # Install exa
-if ! command -v exa >/dev/null 2>&1; then
+EXA_LOCAL_PATH="$HOME/.local/bin/exa"
+if ! command -v exa >/dev/null 2>&1 && [ ! -f "$EXA_LOCAL_PATH" ]; then
     echo "Installing exa..."
-    sudo apt install exa
+
+    # Check Ubuntu version
+    . /etc/os-release
+    if [ "$VERSION_ID" = "20.04" ]; then
+        echo "Ubuntu 20.04 detected. Installing exa from GitHub releases."
+
+        # Ensure unzip is installed
+        sudo apt update
+        sudo apt install -y unzip
+
+        # Get the latest version of exa
+        EXA_VERSION=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
+
+        # Download and unzip exa
+        curl -Lo exa.zip "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v${EXA_VERSION}.zip"
+        sudo unzip -q exa.zip bin/exa -d /usr/local
+        rm -rf exa.zip
+
+        # Make a symlink to $HOME/.local/bin
+        mkdir -p $HOME/.local/bin
+        ln -s /usr/local/bin/exa $EXA_LOCAL_PATH
+    else
+        echo "Installing exa from package manager."
+        sudo apt install exa
+    fi
 else
     echo "exa is already installed."
 fi
 
-echo "Installation script completed."
+echo "Installation script completed. Restart shell with"
+echo "    exec zsh"
