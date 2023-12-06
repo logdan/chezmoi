@@ -12,7 +12,7 @@ Run `sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:logd
 
 1. Install `chezmoi` by following [chezmoi's install guide](https://github.com/twpayne/chezmoi/blob/master/docs/INSTALL.md). You can learn more about `chezmoi` by reading their [quick start guide](https://github.com/twpayne/chezmoi/blob/master/docs/QUICKSTART.md) or [how-to guide](https://github.com/twpayne/chezmoi/blob/master/docs/HOWTO.md).
 
-2. Initialize `chezmoi` using this repository: `chezmoi init https://github.com/HHousen/dotfiles.git`.
+2. Initialize `chezmoi` using this repository: `chezmoi init https://github.com/logdan/chezmoi.git`.
 
 3. Preview changes that `chezmoi` would make to your `$HOME`: `chezmoi diff`.
 
