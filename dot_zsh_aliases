@@ -1,7 +1,8 @@
 # Fancy packages
-alias ls="exa"
-alias ll="exa -lar -snew"
-alias tree="exa --tree"
+alias ls="exa --icons"
+alias ll="exa --icons -lar -snew"
+alias l1="exa --no-icons -1"
+alias tree="exa --tree --icons"
 alias cat="bat"
 
 
