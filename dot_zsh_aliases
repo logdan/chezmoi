@@ -1,0 +1,17 @@
+# Fancy packages
+alias ls="exa"
+alias ll="exa -lar -snew"
+alias tree="exa --tree"
+alias cat="bat"
+
+
+# Various customization of packages
+
+alias nfetch="neofetch --cpu_temp C --refresh_rate on --disk_show /"
+
+# Bat aliases
+alias fzfprev="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+batdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
