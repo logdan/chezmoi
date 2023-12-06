@@ -62,6 +62,24 @@ else
     echo "bat is already installed."
 fi
 
+
+echo "Checking for fzf installation..."
+
+# Check if fzf is already installed
+if ! command -v fzf >/dev/null 2>&1; then
+    echo "fzf not found. Installing fzf..."
+
+    # Clone fzf repository
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+
+    # Install fzf
+    ~/.fzf/install --no-keybindings --no-completions --no-update-rc
+
+    echo "fzf installation completed."
+else
+    echo "fzf is already installed."
+fi
+
 # Install exa
 EXA_LOCAL_PATH="$HOME/.local/bin/exa"
 if ! command -v exa >/dev/null 2>&1 && [ ! -f "$EXA_LOCAL_PATH" ]; then
