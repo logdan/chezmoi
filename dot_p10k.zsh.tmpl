@@ -201,7 +201,16 @@
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=232
   typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=26
   # Custom icon.
+{{- if eq .chezmoi.hostname "DragonSlayerXPS-9500" }}
+  # Icon for Burro
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🫏'
+{{ else if eq .chezmoi.hostname "FlamingYawn" }}
+  # Icon for FlamingYawn
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🥩'
+{{ else }}
+  # Icon for others
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🍉'
+{{ end -}}
 
   ################################[ prompt_char: prompt symbol ]################################
   # Transparent background.
