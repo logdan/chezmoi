@@ -207,6 +207,12 @@
 {{ else if eq .chezmoi.hostname "FlamingYawn" }}
   # Icon for FlamingYawn
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🥩'
+{{ else if eq .chezmoi.hostname "hercules" }}
+  # Icon for hercules
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='💪'
+{{ else if eq .chezmoi.hostname "artemis" }}
+  # Icon for FlamingYawn
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🏹'
 {{ else }}
   # Icon for others
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🍉'
