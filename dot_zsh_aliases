@@ -16,3 +16,23 @@ alias fzfprev="fzf --preview 'bat --color=always --style=numbers --line-range=:5
 batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
+
+settings_diff(){
+    # Convenient way to find out what gsettings are changing when you interact with the gnome settings gui.
+    # Run `settings_diff`, make your change(s) in the gui, and finish the script, and you'll see
+    # what changes were made
+    before=$(mktemp)
+    after=$(mktemp)
+    gsettings list-recursively > $before
+    echo "Current settings have been cached. Make your changes, then hit enter"
+    read input
+    if [[ $input == "n" ]]; then
+    echo "cancelled"
+        return 1
+    fi
+    gsettings list-recursively > $after
+    diff $before $after
+}
+
+alias mouse_natural="gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true"
+alias mouse_standard="gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false"
