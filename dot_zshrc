@@ -33,6 +33,8 @@ plugins=(
     history
     npm
     tmux
+    virtualenv
+    pyenv
     zsh-autosuggestions
     # zsh-completions
     zsh-interactive-cd
@@ -85,3 +87,9 @@ bindkey -v
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Pyenv Configuration
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
