@@ -3,6 +3,11 @@
 
 echo "Starting installation script..."
 
+# Check and upgrade git
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
+
 # Check and install zsh
 if ! command -v zsh >/dev/null 2>&1; then
     echo "Installing zsh..."
@@ -50,6 +55,14 @@ if ! command -v rg >/dev/null 2>&1; then
     sudo apt install ripgrep -y
 else
     echo "ripgrep is already installed."
+fi
+
+# Install tmux
+if ! command -v tmux >/dev/null 2>&1; then
+    echo "Installing tmux..."
+    sudo apt install tmux -y
+else
+    echo "tmux is already installed."
 fi
 
 # Install bat
