@@ -52,14 +52,6 @@ source $ZSH/oh-my-zsh.sh
 # Here instead of aliases because we need it for VC of dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-if [ -f "$HOME/.zsh_aliases" ]; then
-    source $HOME/.zsh_aliases
-fi
-
-if [ -f "$HOME/.localrc" ]; then
-    source $HOME/.localrc
-fi
-
 export HISTSIZE=100000
 export SAVEHIST=500000
 
@@ -83,7 +75,13 @@ bindkey -v
 
 # source $ZSH_CUSTOM/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-[[ ! -f $HOME/.zsh_aliases ]] || source $HOME/.zsh_aliases
+if [ -f "$HOME/.zsh_aliases" ]; then
+    source $HOME/.zsh_aliases
+fi
+
+if [ -f "$HOME/.localrc" ]; then
+    source $HOME/.localrc
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
