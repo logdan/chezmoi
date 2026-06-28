@@ -1,4 +1,6 @@
 # Fancy packages
+alias exa="eza"
+
 alias ls="exa --icons --header"
 alias ll="exa --icons -lar -snew --header"
 alias l1="exa --no-icons -1"

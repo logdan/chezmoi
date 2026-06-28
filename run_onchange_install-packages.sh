@@ -102,6 +102,8 @@ if ! command -v exa >/dev/null 2>&1 && [ ! -f "$EXA_LOCAL_PATH" ]; then
     . /etc/os-release
     if [ "$VERSION_ID" = "20.04" ]; then
         echo "Ubuntu 20.04 detected. Installing exa from GitHub releases."
+        echo "NOTE: Since Exa is deprecated, we're installing eza from the eza-community repository."
+        echo "For Ubuntu 20.04, switch your ls alias to exa since it's now eza in this repo."
 
         # Ensure unzip is installed
         sudo apt update
@@ -119,8 +121,13 @@ if ! command -v exa >/dev/null 2>&1 && [ ! -f "$EXA_LOCAL_PATH" ]; then
         mkdir -p $HOME/.local/bin
         ln -s /usr/local/bin/exa $EXA_LOCAL_PATH
     else
-        echo "Installing exa from package manager."
-        sudo apt install exa -y
+        echo "Installing eza from package manager."
+        sudo mkdir -p /etc/apt/keyrings
+        wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+        echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+        sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+        sudo apt update
+        sudo apt install -y eza
     fi
 else
     echo "exa is already installed."
