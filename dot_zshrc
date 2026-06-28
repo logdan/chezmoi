@@ -83,8 +83,6 @@ if [[ -n "$_ruff_ext_dir" && -d "$_ruff_ext_dir/bundled/libs/bin" ]]; then
 fi
 unset _ruff_cache _ruff_ext_dir
 
-LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
-
 # Lazy-load nvm — only initializes when nvm/node/npm/npx is first invoked
 export NVM_DIR="$HOME/.nvm"
 _lazy_load_nvm() {
